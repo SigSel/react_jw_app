@@ -1,7 +1,8 @@
-import React, { useState, useEffect }  from 'react'
-import { csv } from 'd3'
-import csvPath from './JW_vinmon.csv'
-import Products from './components/Products/Products'
+import React, { useState, useEffect }  from 'react';
+import { csv } from 'd3';
+import csvPath from './JW_vinmon.csv';
+import { Products, Navbar } from './components';
+
 
 
 const App = () => {
@@ -15,7 +16,8 @@ const App = () => {
     
     return (
         <div>
-             <Products products={products} />
+            <Navbar />
+            <Products products={products} />
         </div>
     )
 }
