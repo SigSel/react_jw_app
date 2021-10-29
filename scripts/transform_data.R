@@ -34,5 +34,5 @@ for (i in 1:nrow(data_f)) {
 }
 data_f <- cbind(data_f, images)
 
-write.csv(data_f, file='JW_vinmon.csv')
+write.csv(data_f, file='../src/JW_vinmon.csv')
 
