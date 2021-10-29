@@ -16,6 +16,7 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     textDecoration: 'none',
+    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
   },
   image: {
     marginRight: '10px',
