@@ -32,7 +32,10 @@ jobs:
         uses: r-lib/actions/setup-r@v1
         with:
           r-version: '3.4.4' # The R version to download (if necessary) and use.
-
+      
+      - name: Install tidyverse linux dependencies
+        run : sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev
+        
       - name: Install R dependencies
         run: R -e 'install.packages("tidyverse", dependencies = TRUE)'
         
