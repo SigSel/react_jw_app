@@ -35,9 +35,10 @@ jobs:
       
       - name: Install tidyverse linux dependencies
         run : sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev
-        
+
       - name: Install R dependencies
         run: R -e 'install.packages("tidyverse", dependencies = TRUE)'
+        run: R -e 'install.packages("writexl", dependencies = TRUE)'
         
       - name: Transform json data to csv file using R
         run: Rscript scripts/transform_data.R
