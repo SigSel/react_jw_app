@@ -42,7 +42,7 @@ jobs:
           R -e 'install.packages("writexl", dependencies = TRUE)'
         
       - name: Transform json data to csv file using R
-        run: Rscript scripts/transform_data.R
+        run: sudo Rscript scripts/transform_data.R
 
       - name: Install Node dependencies
         run: npm ci
