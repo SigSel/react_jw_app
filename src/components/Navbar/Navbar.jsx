@@ -1,6 +1,7 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@material-ui/core';
-import { CallMissedSharp } from '@material-ui/icons';
+import { AppBar, Typography } from '@material-ui/core';
+//import { CallMissedSharp } from '@material-ui/icons';
+//Toolbar, IconButton, Badge, MenuItem, Menu, 
 
 import useStyles from './styles';
 
