@@ -38,8 +38,9 @@ jobs:
 
       - name: Install R dependencies
         run: |
-          R -e 'install.packages("writexl", dependencies = TRUE)'
-          R -e 'install.packages("tidyverse", dependencies = TRUE)'
+          install.packages("writexl", dependencies = TRUE)
+          install.packages("tidyverse", dependencies = TRUE)
+        shell: Rscript {0}
         
       - name: Transform json data to csv file using R
         run: sudo Rscript scripts/transform_data.R
