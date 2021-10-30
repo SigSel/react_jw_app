@@ -38,11 +38,11 @@ jobs:
 
       - name: Install R dependencies
       - uses: r-lib/actions/setup-r-dependencies@v1
-          with:
-            cache-version: 2
-            extra-packages: |
-              writexl
-              tidyverse
+        with:
+          cache-version: 2
+          extra-packages: |
+            writexl
+            tidyverse
 
       - name: Transform json data to csv file using R
         run: sudo Rscript scripts/transform_data.R
