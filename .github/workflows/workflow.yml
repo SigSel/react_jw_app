@@ -37,7 +37,7 @@ jobs:
         run : sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev
 
       - name: Install R dependencies
-      - uses: r-lib/actions/setup-r-dependencies@v1
+        uses: r-lib/actions/setup-r-dependencies@v1
         with:
           cache-version: 2
           extra-packages: |
