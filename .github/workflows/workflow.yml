@@ -34,13 +34,8 @@ jobs:
           r-version: '3.4.4' # The R version to download (if necessary) and use.
 
       - name: Install R dependencies
-        uses: r-lib/actions/setup-r-dependencies@v1
-        with:
-          cache-version: 2
-          extra-packages: |
-            tidyverse
-            writexl
-
+        run: Rscript -e "install.packages(c('tidyverse', 'writrexl'))"
+        
       - name: Transform json data to csv file using R
         run: Rscript scripts/transform_data.R
 
