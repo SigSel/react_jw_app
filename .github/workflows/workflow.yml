@@ -15,8 +15,20 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
+      #Get json file from the web
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+      - run: python scripts/python_jsonfetch.py
+      #Tranasform data using R
+      - uses: r-lib/actions/setup-r@v1
+        with:
+          r-version: '3.4.4' # The R version to download (if necessary) and use.
+      - run: Rscript scripts/transform_data.R
+      #Build React application
       - run: npm ci
       - run: npm run build
+      #Upload to AWS
       - uses: SigSel/s3-sync-action@master
         with:
           args: --acl public-read --follow-symlinks --delete
