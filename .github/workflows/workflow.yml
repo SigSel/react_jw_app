@@ -31,10 +31,10 @@ jobs:
       - name: Set up R
         uses: r-lib/actions/setup-r@v1
         with:
-          r-version: '4.1.1' # The R version to download (if necessary) and use.
+          r-version: '3.4.4' # The R version to download (if necessary) and use.
 
       - name: Install R dependencies
-        run: Rscript -e "install.packages(c('tidyverse', 'writrexl'))"
+        run: R -e 'install.packages("tidyverse")'
         
       - name: Transform json data to csv file using R
         run: Rscript scripts/transform_data.R
