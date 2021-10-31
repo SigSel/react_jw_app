@@ -1,5 +1,5 @@
 install.packages("pacman", repos = "http://cran.us.r-project.org")
-pacman::p_load(tidyverse, writexl)
+pacman::p_load(tidyverse, writexl, jsonlite)
 
 #library(tidyverse)
 #library(writexl)
