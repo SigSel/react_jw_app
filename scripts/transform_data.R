@@ -1,3 +1,5 @@
+install.packages("writexl", dependencies = TRUE)
+install.packages("tidyverse", dependencies = TRUE)
 library(tidyverse)
 library(writexl)
 
