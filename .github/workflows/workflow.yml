@@ -36,8 +36,9 @@ jobs:
       - name: Install tidyverse linux dependencies
         run : sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev
 
-      - name: Install R dependencies
+      - name: Install R dependencies (writexl)
         run: R --save install.packages("writexl", dependencies = TRUE)
+      - name: Install R dependencies (tidyverse)
         run: R --save install.packages("tidyverse", dependencies = TRUE)
         
 
