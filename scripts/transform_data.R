@@ -1,7 +1,8 @@
-install.packages("writexl", dependencies = TRUE)
-install.packages("tidyverse", dependencies = TRUE)
-library(tidyverse)
-library(writexl)
+install.packages("pacman")
+pacman::p_load(tidyverse, writexl)
+
+#library(tidyverse)
+#library(writexl)
 
 ads <- map(paste0("search.json"), fromJSON)
 data_raw <- pluck(ads,1, "productSearchResult")
