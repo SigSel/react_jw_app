@@ -13,6 +13,8 @@ jobs:
       matrix:
         node-version: [15.x]
     
+    name: Fetch data, build React app, and upload to S3 bucket
+
     steps:
       - uses: actions/checkout@v2
       - name: Set up python
@@ -36,13 +38,7 @@ jobs:
       - name: Install tidyverse linux dependencies
         run : sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev
 
-      #- name: Install R dependencies (writexl)
-      #  run: R -e 'install.packages("writexl", dependencies = TRUE)'
-      #- name: Install R dependencies (tidyverse)
-      #  run: R -e 'install.packages("tidyverse", dependencies = TRUE)'
-        
-
-      - name: Transform json data to csv file using R
+      - name: Install R packages and transform json data to csv file using R
         run: sudo Rscript scripts/transform_data.R
 
       - name: Install Node dependencies
