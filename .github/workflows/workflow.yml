@@ -7,7 +7,7 @@ on:
   schedule:
     - cron: '17 4 * * *'
   pull_request:
-    types: [opened, reopened]
+    types: [opened, edited, reopened]
 
 jobs:
   build:
