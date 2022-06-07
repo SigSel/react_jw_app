@@ -4,7 +4,7 @@ import json
 url = "https://www.vinmonopolet.no/api/search?q=:relevance:visibleInSearch:true:mainCategory:brennevin:mainSubCategory:brennevin_whisky:mainCountry:japan&searchType=product&currentPage=0&fields=FULL&pageSize=100"
 headers = {
     'User-Agent':
-        'python_requests',
+        'gh-actions',
     'Content-Type':
         'application/json; charset=utf-8'
 }
