@@ -6,6 +6,8 @@ on:
       - "master"
   schedule:
     - cron: '17 4 * * *'
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
   build:
