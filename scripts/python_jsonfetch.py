@@ -11,7 +11,8 @@ with sync_playwright() as p:
 
     page = browser.new_page()
     page.goto(url)
-
+      
+    page.wait_for_selector('body > pre')
     # Use evaluate instead of `content` not to import bs4 or lxml
     html = page.evaluate('document.querySelector("pre").innerText')
 
