@@ -6,7 +6,7 @@ headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KH
 
 resp = requests.get(url=url, headers=headers)
 print(resp.status_code)
-data = resp.json()
+data = json.loads(resp.text)
 
 with open('search.json', 'w') as f:
     json.dump(data, f)
