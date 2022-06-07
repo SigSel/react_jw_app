@@ -31,6 +31,7 @@ jobs:
             python -m pip install --upgrade pip
             pip install playwright==1.22.0
             playwright install
+            playwright install-deps
 
       - name: Python fetch of json file from Vinmonopolet    
         run: python scripts/python_jsonfetch.py
