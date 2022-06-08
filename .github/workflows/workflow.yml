@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - "master"
-  schedule:
-    - cron: '17 4 * * *'
   pull_request:
     types: [opened, edited, reopened]
 
