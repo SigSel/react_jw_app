@@ -12,6 +12,7 @@ if __name__ == "__main__":
     options.add_argument('--headless')
     driver = uc.Chrome(options=options)
     driver.get(url)
+    print(driver.page_source)
     data = driver.page_source.split('pre-wrap;">')[1].split("</pre>")[0]
     data = json.loads(data)
 
