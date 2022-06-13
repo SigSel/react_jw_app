@@ -1,24 +1,19 @@
+import undetected_chromedriver as uc
 import json
-from playwright.sync_api import sync_playwright
 
 
 url = "https://www.vinmonopolet.no/api/search?q=:relevance:visibleInSearch:true:mainCategory:brennevin:" \
       "mainSubCategory:brennevin_whisky:mainCountry:japan&searchType=product&currentPage=0&fields=FULL&pageSize=100"
 
-with sync_playwright() as p:
-    # Webkit is fastest to start and hardest to detect
-    browser = p.webkit.launch(headless=True)
 
-    page = browser.new_page()
-    page.goto(url)
-      
-    print(page.content())
-    page.wait_for_selector('body > pre')
-    # Use evaluate instead of `content` not to import bs4 or lxml
-    html = page.evaluate('document.querySelector("pre").innerText')
+if __name__ == "__main__":
+    options = uc.ChromeOptions()
+    options.headless = True
+    options.add_argument('--headless')
+    driver = uc.Chrome(options=options)
+    driver.get(url)
+    data = driver.page_source.split('pre-wrap;">')[1].split("</pre>")[0]
+    data = json.loads(data)
 
-
-data = json.loads(html)
-
-with open('search.json', 'w') as f:
-    json.dump(data, f)
+    with open('search.json', 'w') as f:
+        json.dump(data, f)
