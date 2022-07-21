@@ -61,11 +61,14 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'eu-north-1'   # optional: defaults to us-east-1
           SOURCE_DIR: 'build'      # optional: defaults to entire repository
-      - name: Upload artifacts
+          
+      - name: Upload json artifact
         uses: actions/upload-artifact@v3
         with:
-          name: json and csv files
-          path: |
-            scripts/search.json
-            src/JW_vinmon.csv
+          path: scripts/search.json
+          
+      - name: Upload csv artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: src/JW_vinmon.csv
             
