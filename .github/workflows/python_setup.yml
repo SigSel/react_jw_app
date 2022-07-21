@@ -24,3 +24,8 @@ jobs:
             pip install requests
       - name: Python fetch of json file from Vinmonopolet    
         run: python scripts/python_jsonfetch.py --api-key ${{ secrets.VINMONOPOLET_OPEN_API_KEY }}
+        
+      - name: Upload json artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: search.json
