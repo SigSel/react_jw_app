@@ -62,13 +62,12 @@ jobs:
           AWS_REGION: 'eu-north-1'   # optional: defaults to us-east-1
           SOURCE_DIR: 'build'      # optional: defaults to entire repository
           
-      - name: Upload json artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          path: scripts/search.json
-          
-      - name: Upload csv artifact
-        uses: actions/upload-artifact@v3
-        with:
-          path: src/JW_vinmon.csv
+          name: json and csv files
+          path: |
+            search.json
+            src/JW_vinmon.csv
+            
             
