@@ -29,7 +29,7 @@ jobs:
       - name: Install Python dependencies
         run: |
             python -m pip install --upgrade pip
-            pip install requests
+            pip install -r scripts/requirements.txt
 
       - name: Python fetch of json file from Vinmonopolet    
         run: python scripts/python_jsonfetch.py --api-key ${{ secrets.VINMONOPOLET_OPEN_API_KEY }}
