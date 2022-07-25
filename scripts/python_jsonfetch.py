@@ -2,6 +2,7 @@ import requests
 import json
 import argparse
 import sys
+import pandas
 
 from typing import List
 
@@ -11,6 +12,18 @@ def parse_args(argument_list: List[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="")
     parser.add_argument("--api-key", help="Vinmonopolet open API key")
     return parser.parse_args(argument_list)
+
+
+def create_csv_file(json_path: str, csv_path: str) -> None:
+    df = pd.read_json(json_path)
+
+    data = pd.DataFrame(df["productSearchResult"]["products"])
+    keep = ["code", "name", "url", "product_selection", "price", "volume", "images"]
+    data = data.filter(items=keep)
+    data["price"] = pd.json_normalize(data["price"])["formattedValue"]
+    data["images"] = pd.json_normalize(pd.json_normalize(data["images"])[1])["url"]
+    data["volume"] = pd.json_normalize(data["volume"])["value"]
+    data.to_csv(csv_path)
 
 
 def main() -> None:
