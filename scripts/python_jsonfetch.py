@@ -2,7 +2,7 @@ import requests
 import json
 import argparse
 import sys
-import pandas
+import pandas as pd
 
 from typing import List
 
