@@ -34,18 +34,6 @@ jobs:
       - name: Python fetch of json file from Vinmonopolet    
         run: python scripts/python_jsonfetch.py --api-key ${{ secrets.VINMONOPOLET_OPEN_API_KEY }}
 
-
-      - name: Set up R
-        uses: r-lib/actions/setup-r@v1
-        with:
-          r-version: '3.5.0' # The R version to download (if necessary) and use.
-      
-      - name: Install tidyverse linux dependencies
-        run : sudo apt install libcurl4-openssl-dev libssl-dev libxml2-dev
-
-      - name: Install R packages and transform json data to csv file using R
-        run: sudo Rscript scripts/transform_data.R
-
       - name: Install Node dependencies
         run: npm ci
       - name: Build React application
