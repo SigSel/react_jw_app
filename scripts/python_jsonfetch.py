@@ -44,6 +44,8 @@ def main() -> None:
 
     with open('search.json', 'w') as f:
         json.dump(data, f)
+    
+    create_csv_file(json_path="search.json", save_path="src/JW_vinmon.csv")
 
 
 if __name__ == "__main__":
