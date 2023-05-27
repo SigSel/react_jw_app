@@ -35,8 +35,8 @@ class ProductFetcher:
         combined_data.to_csv(self.csv_path)
 
     def _make_api_request(self, page_number: int) -> bool:
-        url = "https://www.vinmonopolet.no/api/search?q=:relevance:visibleInSearch:true:mainCategory:brennevin:" \
-              f"mainSubCategory:brennevin_whisky:mainCountry:japan&searchType=product&currentPage={page_number}&fields=FULL"
+        url = "https://www.vinmonopolet.no/vmpws/v2/vmp/search?q=:relevance:mainCategory:brennevin:mainCountry:japan" \
+              f":mainSubCategory:brennevin_whisky&searchType=product&currentPage={page_number}&fields=FULL&pageSize=24"
         headers = {
             'User-Agent':
                 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36',
