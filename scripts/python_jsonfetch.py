@@ -72,7 +72,7 @@ def parse_args(argument_list: List[str]) -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args(sys.argv[1:])
-    fetcher = ProductFetcher(api_key=args.api_key, csv_path="../src/JW_vinmon.csv")
+    fetcher = ProductFetcher(api_key=args.api_key, csv_path="src/JW_vinmon.csv")
     fetcher.fetch_data(number_of_pages=10)
 
 
